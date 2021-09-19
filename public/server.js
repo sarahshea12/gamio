@@ -27,7 +27,6 @@ var con = mysql.createConnection({
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Got records");
-      console.log(result);
       users = result; 
     });
   });
