@@ -1,10 +1,13 @@
 function helloWorld() {
     console.log("Hello world!");
+    return "Hello world!"
 }
 
-function sum(x) {
-    z = x + 1;
-    return z;
-}
+exports.helloWorld = helloWorld; 
 
-module.exports = sum;
+// function sum(x) {
+//     z = x + 1;
+//     return z;
+// }
+
+// module.exports = sum;
