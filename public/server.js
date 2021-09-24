@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require("mysql2");
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
+
 require("dotenv").config();
 
 const PORT = process.env.PORT || 8080;
@@ -41,6 +42,8 @@ app.engine('hbs', exphbs({
   extname: '.hbs'
 }));
 app.set('view engine', 'hbs');
+
+require("./html-routes.js")(app);
 
 app.get('/', function (req, res) {
   res.render('home',{
