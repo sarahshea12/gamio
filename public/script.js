@@ -5,9 +5,11 @@ function helloWorld() {
 
 exports.helloWorld = helloWorld; 
 
-// function sum(x) {
-//     z = x + 1;
-//     return z;
-// }
+function addition(x) {
+    z = x + 1;
+    return z;
+}
 
-// module.exports = sum;
+exports.addition = addition;
+
+// module.exports = script;

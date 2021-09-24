@@ -1,9 +1,8 @@
-<h1>Hello World from Handlebars</h1>
+<h1>Registered Members</h1>
 
 <ul>
     {{#each users}}
-            <li>{{this.name}}  {{this.address}}</li>
+            <li>{{this.name}}  {{this.age}} {{this.game}}</li>
     {{/each}}
-    <li>This is supposed to be a comment</li>
-    <li>This is supposed to be a comment</li>
 </ul>
+<a href="/signup">sign up</a>

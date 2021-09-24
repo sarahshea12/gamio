@@ -10,19 +10,38 @@ var users = [];
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: process.env.password,
-    database: "mydb"
+    password: process.env.password
+    // database: "mydb"
   });
 
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = "INSERT INTO users (name, address) VALUES ('Bonnie Cone', 'University City Blvd.')";
+    // var sql = "INSERT INTO users (name, address) VALUES ('Ryan', 'University City Blvd.')";
+    var sql = "CREATE DATABASE IF NOT EXISTS gamio"
     con.query(sql, function (err, result) {
       if (err) throw err;
-      console.log("1 record inserted");
+      console.log("database created/located");
     });
 
+    var sql = "USE gamio"
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("using gamio");
+    });
+
+    var sql = "CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), age INT, game VARCHAR(255))"
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("created/located users table");
+    });
+
+    var sql = "INSERT INTO users (name, age, game) VALUES ('George', 34, 'Chess')"
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("inserted record");
+    });
+    
     sql = "SELECT * from users"
     con.query(sql, function (err, result) {
       if (err) throw err;
@@ -41,6 +60,8 @@ app.engine('hbs', exphbs({
   extname: '.hbs'
 }));
 app.set('view engine', 'hbs');
+
+require("./html-routes.js")(app);
 
 app.get('/', function (req, res) {
   res.render('home',{
