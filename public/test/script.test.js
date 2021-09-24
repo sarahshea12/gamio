@@ -1,7 +1,11 @@
-const { expect } = require('@jest/globals');
-const script = require('../script.js'); //import script to be tested
+const script = require("../script");
 
-//test for Hello World
-test("returns Hello world", () => {
-    expect(script.helloWorld()).toBe("Hello world!")
-})
+describe("Test", () => {
+    test('result of adding 2 & 1 should be 3', () => {
+      expect(script.addition(2)).toBe(3);
+    });
+
+    test("returns Hello world", () => {
+      expect(script.helloWorld()).toBe("Hello world!")
+  })
+});
