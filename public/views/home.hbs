@@ -1,24 +1,29 @@
 <h1>Registered Members</h1>
 
-<table>  
-    <tr>
-        <th>Player</th>
-        <th>Age</th>
-        <th>Game</th>
-    </tr>
-    {{#each users}}
-        <tr>
-            <td>{{this.name}} </td>
-            <td>{{this.age}}</td>
-            <td>{{this.game}}</td>
-        </tr>
-    {{/each}}
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <table>  
+            <tr>
+                <th>Player</th>
+                <th>Age</th>
+                <th>Game</th>
+            </tr>
+            {{#each users}}
+            <tr>
+                <td>{{this.name}} </td>
+                <td>{{this.age}}</td>
+                <td>{{this.game}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    <div class="col">
+      {{!-- another column --}}
+    </div>
+  </div>
+</div>
 
-{{!-- <ul>
-    {{#each users}}
-            <li>{{this.name}}  {{this.age}} {{this.game}}</li>
-    {{/each}}
-</ul> --}}
+
 
 <a href="/signup">sign up</a>
