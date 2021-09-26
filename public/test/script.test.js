@@ -9,3 +9,6 @@ describe("Test", () => {
       expect(script.helloWorld()).toBe("Hello world!")
   })
 });
+
+const mockCallback = jest.fn(x => 42 + x);
+script.forEachv2([0, 1], mockCallback);

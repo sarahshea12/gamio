@@ -12,7 +12,7 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: process.env.password
-    // database: "mydb"
+   // database: "mydb"
 });
 
 // setting up database
