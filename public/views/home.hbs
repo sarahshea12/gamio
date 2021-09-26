@@ -1,24 +1,28 @@
 <h1>Registered Members</h1>
 
-<table>  
-    <tr>
-        <th>Player</th>
-        <th>Age</th>
-        <th>Game</th>
-    </tr>
-    {{#each users}}
-        <tr>
-            <td>{{this.name}} </td>
-            <td>{{this.age}}</td>
-            <td>{{this.game}}</td>
-        </tr>
-    {{/each}}
-</table>
-
-{{!-- <ul>
-    {{#each users}}
-            <li>{{this.name}}  {{this.age}} {{this.game}}</li>
-    {{/each}}
-</ul> --}}
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <table>  
+            <tr>
+                <th>Player</th>
+                <th>Age</th>
+                <th>Game</th>
+            </tr>
+            {{#each users}}
+            <tr>
+                <td>{{this.name}} </td>
+                <td>{{this.age}}</td>
+                <td>{{this.game}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    <div class="col">
+        {{!-- <img src="../homeview.svg" srcset="../homeview.svg" style="width: 100%; height: auto;"> --}}
+        {{!-- <object type="image/svg+xml" data="../homeview.svg"></object> --}}
+    </div>
+  </div>
+</div>
 
 <a href="/signup">sign up</a>
