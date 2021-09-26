@@ -12,4 +12,12 @@ function addition(x) {
 
 exports.addition = addition;
 
+function forEachv2(items, callback) { 
+    for(let index = 0; index < items.length; index++){
+        callback(items[index]);
+    }
+}
+
+exports.forEachv2 = forEachv2;
+
 // module.exports = script;
