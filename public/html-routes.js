@@ -35,5 +35,8 @@ module.exports = function(app) {
       app.post('/createAccount', function(req, res){
         createAccount.create(req, res);
       })
+  
+      app.get("/events", (req, res) => {
+      res.render("events");
+      });
 }
-
