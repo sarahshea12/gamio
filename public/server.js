@@ -12,7 +12,6 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: process.env.password
-   // database: "mydb"
 });
 
 // setting up database
@@ -55,7 +54,16 @@ con.connect(function(err) {
     console.log("-got records");
     users = result; 
   });
+
+  sql = "SELECT * from events"
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result)
+    events = result; 
+  });
 });
+
+
 
 // creating express app 
 const app = express();
@@ -76,6 +84,12 @@ require("./html-routes.js")(app);
 app.get('/', function (req, res) {
   res.render('home',{
     users
+  });
+});
+
+app.get('/events', function (req, res) {
+  res.render('events',{
+    events
   });
 });
 
