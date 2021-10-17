@@ -1,9 +1,5 @@
-const { ExpressHandlebars } = require("express-handlebars");
-const express = require('express');
 const login = require('./login');
-const { Router } = require("express");
 const createAccount = require('./createAccount');
-
 
 module.exports = function(app) {
     app.get("/signup", (req, res) => {
@@ -25,7 +21,7 @@ module.exports = function(app) {
       })
 
       app.get('/', function(request, response) {
-        response.sendFile(path.join(__dirname + '/login.html'));
+        response.render("login");
       });
       
       app.get("/createAccount", (req, res) => {
