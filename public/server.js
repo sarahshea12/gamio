@@ -61,19 +61,18 @@ con.connect(function(err) {
     console.log("-got records");
     users = result; 
   });
-  
-  var sql = "INSERT INTO 'accounts' ('id', 'username', 'password', 'email') VALUES (1, 'test', 'test', 'test@test.com')"
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("-inserted records");
-  });
 
-  sql = "SELECT * from events"
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log(result)
-    events = result; 
-  });
+  // var sql = "ALTER TABLE accounts ADD PRIMARY KEY (id)"
+  // con.query(sql, function (err, result) {
+  //   if (err) throw err;
+  //   console.log("-altered accounts table");
+  // });
+
+//   var sql = "ALTER TABLE accounts MODIFY id int(11) NOT NULL AUTO_INCREMENT"
+//   con.query(sql, function (err, result) {
+//     if (err) throw err;
+//     console.log("-altered accounts table to modify primary key");
+//   });
 });
 
 // creating express app 
