@@ -1,0 +1,26 @@
+<h1>Registered Members</h1>
+    <table>
+        <table border="10">
+        <tr>
+            <th> Id </th>
+            <th> Full Name</th>
+            <th>Email Address</th>
+            <th> City </th>
+            <th> Country </th>
+        </tr>
+
+        {{#each users}}
+        <tr>
+            <td>{{this.id}} </td>
+            <td>{{this.fullName}}</td>
+            <td>{{this.emailAddress}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.country}}</td>
+        </tr>
+    {{/each}}
+    </table>
+
+
+
+<a href="/signup">sign up</a>
+

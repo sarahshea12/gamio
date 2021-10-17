@@ -1,0 +1,30 @@
+{
+  "name": "gamio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server2.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server2.js"
+  },
+  "keywords": [
+    "gamio",
+    "package.json",
+    "npm",
+    "init"
+  ],
+  "author": "Akshay Srinivasan asrini10@uncc.edu",
+  "license": "ISC",
+  
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "handlebars": "^4.7.7",
+    "hbs": "^4.1.2",
+    "jest": "^27.2.2",
+    "mysql": "^2.18.1"
+  }
+}
+
+

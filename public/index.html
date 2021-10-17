@@ -1,15 +1,187 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Events List </title>
 </head>
 <body>
-    <h1>HELLO WORLD</h1>
+    <div class="container">
+        <div class="item-container">
+            <div class="img-container">
+                <img src="./images/cod1.jpg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">Call of Duty </p>
+                    <div class="separator"></div>
+                    <p class="info">Student Union</p>
+                    <p class="price">Free</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Cone Center
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Tue, October 19, 10:00 AM EDT
+                        </p>
+
+                        <p class="info description">
+                            CoD: Warzone Event Was A Cooperative, Explosion-Filled Mission To Destroy A Train. ... As it slowly moves its away along the tracks, players first have to deal damage to a series of turrets
+                            on top of the train that will be firing at you. <span>more...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="action">RSVP </button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="./images/tennis2.jpg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">Tennis</p>
+                    <div class="separator"></div>
+                    <p class="info">Halton Wagner Tennis Complex</p>
+                    <p class="price">Free</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Charlotte, NC
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Tue, October 19, 10:00 AM EDT
+                        </p>
+
+                        <p class="info description">
+                            Tennis is a game played with two opposing players (singles) or pairs of players (doubles) using tautly strung rackets to hit a ball 
+                            of specified size, weight, and bounce over a net on a rectangular court. <span>more...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="action">RSVP</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="./images/soccer3.jpg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">Soccer</p>
+                    <div class="separator"></div>
+                    <p class="info">NRFC</p>
+                    <p class="price">Free</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            E Mallard Creek Church Rd, Charlotte, NC 28262
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Tue, October 19, 10:00 AM EDT
+                        </p>
+
+                        <p class="info description">
+                            Football, also called association football or soccer, is a game involving two teams of 11 players who try to maneuver the ball into the other
+                            team's goal without using their hands or arms <span>more...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="action">RSVP</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="./images/basketball4.jpeg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">Basketball</p>
+                    <div class="separator"></div>
+                    <p class="info">University Recreation</p>
+                    <p class="price">Free</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Craver Rd, Charlotte, NC 28262
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Tue, October 19, 10:00 AM EDT
+                        </p>
+
+                        <p class="info description">
+                            Basketball is a game played between two teams of five players each on a rectangular court, usually indoors. Each team tries to score by tossing the ball through the opponent's goal, 
+                            an elevated horizontal hoop and net called a basket <span>more...</span>
+                        </p>
+                    </div>
+                </div>
+                <button class="action">RSVP</button>
+            </div>
+        </div>
+    </div>
+
+    <title>Animated Search Box</title>
+</head>
+
+<body>
+    <div class="search-box">
+        <input type="text" placeholder="Search Events">
+        <button class="close">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="expand">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+    <script>
+        var searchBox = document.querySelector('.search-box');
+        var btnExpand = document.querySelector('.expand');
+        var btnClose = document.querySelector('.close');
+        var inputEl = document.querySelector('.search-box input');
+
+        /* Expand button click */
+        btnExpand.addEventListener('click', function() {
+            searchBox.className = 'search-box opened';
+            inputEl.value = '';
+            inputEl.focus();
+        });
+
+        /* Close button click */
+        btnClose.addEventListener('click', function() {
+            searchBox.className = 'search-box';
+        });
+    </script>
 </body>
-
-<script src="script.js"></script>
-
+    
+</body>
+<script src="server2.js"></script>
 </html>
