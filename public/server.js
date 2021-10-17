@@ -7,6 +7,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 var users = []; 
 
+
 // create sql connection
 var con = mysql.createConnection({
     host: "localhost",
@@ -67,9 +68,7 @@ require("./html-routes.js")(app);
 
 // display home handlebar page
 app.get('/', function (req, res) {
-  res.render('home',{
-    users
-  });
+  res.render('login');
 });
 
 app.listen(PORT, () => {
