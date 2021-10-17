@@ -35,7 +35,7 @@ module.exports = function(app) {
 
     app.get("/events", (req, res) => {
       events.display(req, res)
-      res.render("events", res);
+     // res.render("events", res);
     });
 
     // app.get("/events", (req, res) => {
