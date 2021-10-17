@@ -12,7 +12,6 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: process.env.password
-   // database: "mydb"
 });
 
 // setting up database
@@ -37,6 +36,12 @@ con.connect(function(err) {
     console.log("-created/located users table");
   });
 
+  var sql = "CREATE TABLE IF NOT EXISTS events (game VARCHAR(255), date DATE, time TIME, players VARCHAR(255))"
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("-created/located events table");
+  });
+
   var sql = "INSERT INTO users (name, age, game) VALUES ('George', 34, 'Chess')"
   con.query(sql, function (err, result) {
     if (err) throw err;
@@ -49,7 +54,16 @@ con.connect(function(err) {
     console.log("-got records");
     users = result; 
   });
+
+  sql = "SELECT * from events"
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result)
+    events = result; 
+  });
 });
+
+
 
 // creating express app 
 const app = express();
@@ -60,6 +74,7 @@ app.engine('hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs'
 }));
+
 app.set('view engine', 'hbs');
 
 // require html routes
@@ -72,9 +87,15 @@ app.get('/', function (req, res) {
   });
 });
 
+app.get('/events', function (req, res) {
+  res.render('events',{
+    events
+  });
+});
+
 app.listen(PORT, () => {
 console.log(
-    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    "==>  Listening on port %s. Visit http://localhost:%s/ in your browser.",
     PORT,
     PORT
   );
