@@ -3,6 +3,7 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+const{v4: uuidv4} = require('uuid');
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -20,15 +21,21 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
-
-function login(username, password, request, response){
+function create (request, response){
+    var username = request.body.username;
+    var password = request.body.password;
+    var email = request.body.email; 
+    var id = getRandomInt(1000);
 	if (username && password) {
-		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-			if (results.length > 0) {
-				response.redirect('/home');
+		connection.query('INSERT INTO accounts (id, username, password, email) VALUES (?,?,?,?)', [id, username, password, email], function(error, results, fields) {
+            if(error){
+				response.send(error);
 			} else {
-				response.send('Incorrect Username and/or Password!');
+                response.redirect('/home');
 			}			
 			response.end();
 		});
@@ -38,4 +45,4 @@ function login(username, password, request, response){
 	}
 }
 
-module.exports = {login};
+module.exports = {create};

@@ -12,8 +12,8 @@ var users = [];
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: process.env.password
-   // database: "mydb"
+    password: process.env.password,
+    database: "gamio"
 });
 
 // setting up database
