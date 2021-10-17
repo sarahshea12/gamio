@@ -48,12 +48,24 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("-inserted record");
   });
-  
+
+  var sql = "CREATE TABLE IF NOT EXISTS accounts (id int(11) NOT NULL, username varchar(50) NOT NULL, password varchar(255) NOT NULL, email varchar(100) NOT NULL)"
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("-created/located accounts table");
+  });
+
   sql = "SELECT * from users"
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("-got records");
     users = result; 
+  });
+  
+  var sql = "INSERT INTO 'accounts' ('id', 'username', 'password', 'email') VALUES (1, 'test', 'test', 'test@test.com')"
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("-inserted records");
   });
 
   sql = "SELECT * from events"
@@ -63,8 +75,6 @@ con.connect(function(err) {
     events = result; 
   });
 });
-
-
 
 // creating express app 
 const app = express();
@@ -84,12 +94,6 @@ require("./html-routes.js")(app);
 // display home handlebar page
 app.get('/', function (req, res) {
   res.render('login');
-});
-
-app.get('/events', function (req, res) {
-  res.render('events',{
-    events
-  });
 });
 
 app.listen(PORT, () => {
