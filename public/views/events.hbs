@@ -1,1 +1,12 @@
 <h1>Events</h1>
+
+<div>
+    {{#each events}}
+        <tr>
+            <td>{{this.game}} </td>
+            <td>{{this.date}}</td>
+            <td>{{this.time}}</td>
+            <td>{{this.players}}</td>
+        </tr>
+    {{/each}}
+</div>

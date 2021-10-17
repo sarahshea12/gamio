@@ -2,8 +2,6 @@ var mysql = require('mysql2');
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
-var path = require('path');
-const{v4: uuidv4} = require('uuid');
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -18,6 +16,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 

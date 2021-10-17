@@ -48,7 +48,13 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("-inserted record");
   });
-  
+
+  var sql = "CREATE TABLE IF NOT EXISTS accounts (id int(11) NOT NULL, username varchar(50) NOT NULL, password varchar(255) NOT NULL, email varchar(100) NOT NULL)"
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("-created/located accounts table");
+  });
+
   sql = "SELECT * from users"
   con.query(sql, function (err, result) {
     if (err) throw err;
@@ -56,15 +62,18 @@ con.connect(function(err) {
     users = result; 
   });
 
-  sql = "SELECT * from events"
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log(result)
-    events = result; 
-  });
+  // var sql = "ALTER TABLE accounts ADD PRIMARY KEY (id)"
+  // con.query(sql, function (err, result) {
+  //   if (err) throw err;
+  //   console.log("-altered accounts table");
+  // });
+
+//   var sql = "ALTER TABLE accounts MODIFY id int(11) NOT NULL AUTO_INCREMENT"
+//   con.query(sql, function (err, result) {
+//     if (err) throw err;
+//     console.log("-altered accounts table to modify primary key");
+//   });
 });
-
-
 
 // creating express app 
 const app = express();
@@ -84,12 +93,6 @@ require("./html-routes.js")(app);
 // display home handlebar page
 app.get('/', function (req, res) {
   res.render('login');
-});
-
-app.get('/events', function (req, res) {
-  res.render('events',{
-    events
-  });
 });
 
 app.listen(PORT, () => {
