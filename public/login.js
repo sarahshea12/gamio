@@ -10,30 +10,30 @@ var connection = mysql.createConnection({
 	database : 'gamio'
 });
 
-var app = express();
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
-
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
-
 function login(username, password, request, response){
+	this.isLoggedIn = null;
 	if (username && password) {
-		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], (error, results, fields) => {
+			console.log("In query callback");
 			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.username = username;
 				response.redirect('/home');
 			} else {
+				console.log("login failed");
 				response.send('Incorrect Username and/or Password!');
-			}			
-			response.end();
+				this.isLoggedIn = false;  
+			}	
+			request.session.save();
+			console.log(request.session.username);
+			response.end();		
 		});
 	} else {
 		response.send('Please enter Username and Password!');
-		response.end();
+		this.isLoggedIn = false; 
 	}
+
+	return this.isLoggedIn; 
 }
 
 module.exports = {login};

@@ -1,4 +1,5 @@
 const express = require("express");
+var session = require('express-session');
 const mysql = require("mysql2");
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
@@ -80,6 +81,13 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
+app.use(session({
+  secret: 'keyboard cat', //~so secure~
+  resave: false,
+  saveUninitialized: true,
+}))
+
 app.engine('hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs'
