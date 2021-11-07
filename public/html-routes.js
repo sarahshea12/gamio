@@ -47,8 +47,6 @@ module.exports = function(app) {
     });
 
     app.get("/profile", (req, res) => {
-      console.log(req.session.loggedin);
-      console.log(req.session.username);
       if (req.session.loggedin) {
         user = req.session.username;
         res.render("profile", {user})
