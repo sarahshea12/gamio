@@ -58,7 +58,7 @@ module.exports = function(app) {
 
     app.post("/profile", (req, res) => {
       editAccount.update(req, res); 
-      user = req.session.username;
+      user = req.body.username;
       res.render("profile", {user})
     }
     ); 
