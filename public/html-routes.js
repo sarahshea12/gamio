@@ -1,5 +1,6 @@
 const login = require('./login');
 const createAccount = require('./createAccount');
+const editAccount = require('./editAccount');
 const events = require('./events')
 
 module.exports = function(app) {
@@ -18,6 +19,10 @@ module.exports = function(app) {
     app.post('/auth', function(req, res){
       var username = req.body.username;
       var password = req.body.password;
+      req.session.loggedin = false;
+      req.session.username = "";
+
+      //oh god this is hell tier code
       login.login(username, password, req, res);
     })
 
@@ -34,11 +39,27 @@ module.exports = function(app) {
     })
 
     app.get("/events", (req, res) => {
-      events.display(req, res)
-     // res.render("events", res);
+      if (req.session.loggedin) {
+        events.display(req, res)
+      } else {
+        res.render('/createAccount')
+      }
     });
 
-    // app.get("/events", (req, res) => {
-    //   events.display(req, res)
-    // });
+    app.get("/profile", (req, res) => {
+      if (req.session.loggedin) {
+        user = req.session.username;
+        res.render("profile", {user})
+      }else{
+        res.render('createAccount')
+      }
+      
+    })
+
+    app.post("/profile", (req, res) => {
+      editAccount.update(req, res); 
+      user = req.body.username;
+      res.render("profile", {user})
+    }
+    ); 
 }

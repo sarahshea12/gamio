@@ -1,0 +1,11 @@
+<body>
+		<div class="profile-form">
+			<h1>Hello! {{user}}</h1>
+			<p> Edit your profile information here: </p>
+			<form action="profile" method="POST">
+				<input type="text" name="username" placeholder={{user}}>
+				<input type="password" name="password" placeholder="New Password">
+			<input type="submit">
+		</form>
+		</div>
+	</body>

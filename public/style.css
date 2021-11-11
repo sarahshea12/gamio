@@ -1,0 +1,14 @@
+.login-form{
+    margin: 0 auto; 
+    width:250px;
+    text-align: center;
+    color: blueviolet;
+}
+
+.nav{
+    text-align: right;
+}
+
+a{
+    color:orange;
+}

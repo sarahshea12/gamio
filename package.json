@@ -21,7 +21,7 @@
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
-    "jest": "^27.2.2",
+    "jest": "^27.3.1",
     "mysql2": "^2.3.0",
     "passport": "^0.5.0",
     "path": "^0.12.7",
