@@ -25,7 +25,7 @@ function display(request, response){
         if (error){
             response.send(error)
         } else {
-            console.log(results)
+            // console.log(results)
             response.render('events', {results});
             return results;
         }

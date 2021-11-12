@@ -34,7 +34,7 @@ function create (request, response){
             if(error){
 				response.send(error);
 			} else {
-                response.redirect('/home');
+                response.redirect('/events');
 			}			
 			response.end();
 		});

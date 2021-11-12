@@ -1,11 +1,13 @@
-<h1>Signup page</h1>
-{{!-- we will make an api route for this form for a post request to database --}}
-<form>
-  <label for="fname">Name:</label><br>
+<h1>Create Event</h1>
+
+<form action="createEvent" method="POST">
+  <label>Name:</label><br>
   <input type="text" id="name" name="name"><br>
-  <label for="lname">Age:</label><br>
-  <input type="text" id="age" name="age"><br>
-  <label for="lname">Game:</label><br>
-  <input type="text" id="game" name="game"><br><br>
+  <label>Game:</label><br>
+  <input type="text" id="game" name="game" required><br>
+  <label>Date:</label><br>
+  <input type="date" id="date" name="date" required><br>
+  <label>Time:</label><br>
+  <input type="time" id="time" name="time" required><br><br>
   <input type="submit">
 </form>
