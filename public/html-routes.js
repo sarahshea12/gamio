@@ -2,6 +2,7 @@ const login = require('./login');
 const createAccount = require('./createAccount');
 const editAccount = require('./editAccount');
 const events = require('./events')
+const createEvent = require('./createEvent')
 
 module.exports = function(app) {
     app.get("/signup", (req, res) => {
@@ -36,6 +37,10 @@ module.exports = function(app) {
 
     app.post('/createAccount', function(req, res){
       createAccount.create(req, res);
+    })
+
+    app.post('/createEvent', function(req, res){
+      createEvent.create(req, res);
     })
 
     app.get("/events", (req, res) => {

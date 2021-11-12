@@ -20,17 +20,14 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
 function create (request, response){
-    var username = request.body.username;
-    var password = request.body.password;
-    var email = request.body.email; 
-    var id = getRandomInt(1000);
-	if (username && password) {
-		connection.query('INSERT INTO accounts (id, username, password, email) VALUES (?,?,?,?)', [id, username, password, email], function(error, results, fields) {
+    var host = request.body.name;
+    var date = request.body.date;
+    var time = request.body.time;
+    var game = request.body.game;
+
+	if (date && time && game && host) {
+		connection.query('INSERT INTO events (game, date, time, players) VALUES (?,?,?,?)', [game, date, time, host], function(error, results, fields) {
             if(error){
 				response.send(error);
 			} else {
@@ -39,7 +36,7 @@ function create (request, response){
 			response.end();
 		});
 	} else {
-		response.send('Please enter Username and Password!');
+		response.send('Please complete all fields');
 		response.end();
 	}
 }
