@@ -47,7 +47,7 @@ module.exports = function(app) {
       if (req.session.loggedin) {
         events.display(req, res)
       } else {
-        res.render('/createAccount')
+        res.render('login')
       }
     });
 
@@ -56,7 +56,7 @@ module.exports = function(app) {
         user = req.session.username;
         res.render("profile", {user})
       }else{
-        res.render('createAccount')
+        res.render('login')
       }
       
     })
