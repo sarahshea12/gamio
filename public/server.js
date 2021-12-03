@@ -38,7 +38,7 @@ con.connect(function(err) {
     console.log("-created/located users table");
   });
 
-  var sql = "CREATE TABLE IF NOT EXISTS events (game VARCHAR(255), date DATE, time TIME, players VARCHAR(255))"
+  var sql = "CREATE TABLE IF NOT EXISTS events (game VARCHAR(255), date DATE, time TIME, players VARCHAR(255), contact VARCHAR(255), details VARCHAR(255))"
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("-created/located events table");
