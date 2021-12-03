@@ -1,6 +1,7 @@
-<h1>Registered Members</h1>
+<h1>Welcome!</h1>
 
 <div class="container">
+    {{!-- Maybe this could be integrated in Akshay's part where users can view other users --}}
     {{#each users}}
     <tr>
         <td>{{this.name}} </td>
@@ -12,12 +13,8 @@
             <div class="card-body">
                 <h5 class="card-title">Name:  {{this.name}}</h5>
                     <p class="card-text">Email: {{this.date}}</p>
-                <!--    <p class="card-text">Games: {{this.games}}</p> -->
                     <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
     </div>
     {{/each}}
 </div>
-
-
-
