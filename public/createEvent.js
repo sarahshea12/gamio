@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 function create (request, response){
-    var host = request.body.name;
+    var host = request.session.username;
     var date = request.body.date;
     var time = request.body.time;
     var game = request.body.game;
