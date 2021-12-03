@@ -21,13 +21,15 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 function create (request, response){
-    var host = request.body.name;
+    var host = request.session.username;
     var date = request.body.date;
     var time = request.body.time;
     var game = request.body.game;
+	var contact = request.body.contact; 
+	var details = request.body.details; 
 
 	if (date && time && game && host) {
-		connection.query('INSERT INTO events (game, date, time, players) VALUES (?,?,?,?)', [game, date, time, host], function(error, results, fields) {
+		connection.query('INSERT INTO events (game, date, time, players, contact, details) VALUES (?,?,?,?,?,?)', [game, date, time, host, contact, details], function(error, results, fields) {
             if(error){
 				response.send(error);
 			} else {

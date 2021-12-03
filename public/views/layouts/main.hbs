@@ -7,17 +7,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS -->
-   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-   --> 
-    <link rel="stylesheet" href="/public/style.css" type="text/css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+   
+    <!---<link rel="stylesheet" href="/public/style.css" type="text/css">-->
 </head>
 
 <body>
     <div class="container">
-        <nav>
-            <a href="/signup">create event</a>
-            <a href="/events">upcoming events</a>
-            <a href="/createAccount">create account</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/events">Gamio</a>
+            <a class="nav-link" href="/signup">create event</a>
+            <a class="nav-link" href="/events">upcoming events</a>
+            <a class="nav-link" href="/createAccount">create account</a>
+            <a class="nav-link" href="/profile">profile</a>
+            <a class="nav-link" href="/login">login</a>
         </nav>
         {{{body}}}
     </div>
