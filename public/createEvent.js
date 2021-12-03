@@ -20,8 +20,10 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-function create (request, response){
-    var host = request.session.username;
+let host;
+
+function create(request, response){
+    host = request.session.username;
     var date = request.body.date;
     var time = request.body.time;
     var game = request.body.game;
@@ -43,4 +45,20 @@ function create (request, response){
 	}
 }
 
-module.exports = {create};
+function updatePlayers (request, response) {
+	if (request.session.username != host) {
+		console.log(host)
+		console.log(request)
+		connection.query('UPDATE events SET username = (?) WHERE username = (?)', [newUsername, username], function (error) {
+			console.log("in update");
+			if(error){
+				console.log("error updating" + error);
+				response.send(error);  
+			}
+		})
+	} else {
+		alert("You are the host of this event!")
+	}
+}
+
+module.exports = {create, updatePlayers};
