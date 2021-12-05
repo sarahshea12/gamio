@@ -26,7 +26,6 @@ function display(request, response){
             response.send(error)
         } else {
             response.render('events', {results});
-            console.log(results)
             return results;
         }
 	});
