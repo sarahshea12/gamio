@@ -1,19 +1,20 @@
 <h1>Events</h1>
 
-<div>
+<div class="row">
     {{#each results}}
-
-    <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Game:  {{this.game}}</h5>
-                <p class="card-text">Date: {{this.date}}</p>
-                <p class="card-text">Time: {{this.time}}</p>
-                <p class="card-text">Host: {{this.players}}</p>
-                <p class="card-text">Contact: {{this.contact}}</p>
-                <form action="updatePlayers" method="POST">
-                    <button type="submit" class="btn btn-primary">Register!</button>
-                </form>
-            </div>
+    <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Game:  {{this.game}}</h5>
+                    <p class="card-text">Date: {{this.date}}</p>
+                    <p class="card-text">Time: {{this.time}}</p>
+                    <p class="card-text" name="players">Players: {{this.players}}</p>
+                    <p class="card-text">Contact: {{this.contact}}</p>
+                    <form action="update" method="POST">
+                        <button name="regButton" value={{this.game}} type="submit" class="btn btn-primary">Register!</button>
+                    </form>
+                </div>
+        </div>
     </div>
     {{/each}}
 </div>
