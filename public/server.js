@@ -62,18 +62,6 @@ con.connect(function(err) {
     console.log("-got records");
     users = result; 
   });
-
-  // var sql = "ALTER TABLE accounts ADD PRIMARY KEY (id)"
-  // con.query(sql, function (err, result) {
-  //   if (err) throw err;
-  //   console.log("-altered accounts table");
-  // });
-
-//   var sql = "ALTER TABLE accounts MODIFY id int(11) NOT NULL AUTO_INCREMENT"
-//   con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     console.log("-altered accounts table to modify primary key");
-//   });
 });
 
  
