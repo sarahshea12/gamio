@@ -58,7 +58,10 @@ module.exports = function(app) {
       }else{
         res.render('login')
       }
-      
+    })
+
+    app.post("/update", (req, res) => {
+      updatePlayers.update(req, res);
     })
 
     app.post("/profile", (req, res) => {
