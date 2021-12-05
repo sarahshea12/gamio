@@ -1,8 +1,9 @@
 const login = require('./login');
 const createAccount = require('./createAccount');
 const editAccount = require('./editAccount');
-const events = require('./events')
-const createEvent = require('./createEvent')
+const events = require('./events');
+const createEvent = require('./createEvent');
+const updatePlayers = require('./updatePlayers');
 
 module.exports = function(app) {
     app.get("/signup", (req, res) => {
@@ -58,7 +59,10 @@ module.exports = function(app) {
       }else{
         res.render('login')
       }
-      
+    })
+
+    app.post("/update", (req, res) => {
+      updatePlayers.update(req, res);
     })
 
     app.post("/profile", (req, res) => {
