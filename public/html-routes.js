@@ -1,8 +1,9 @@
 const login = require('./login');
 const createAccount = require('./createAccount');
 const editAccount = require('./editAccount');
-const events = require('./events')
-const createEvent = require('./createEvent')
+const events = require('./events');
+const createEvent = require('./createEvent');
+const updatePlayers = require('./updatePlayers');
 
 module.exports = function(app) {
     app.get("/signup", (req, res) => {
